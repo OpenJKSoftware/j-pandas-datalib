@@ -1,6 +1,6 @@
 [tool.poetry]
 name="wodoo-datalib"
-version="0.0.1"
+version="0.0.2"
 description="Dataabstractionlayer For Pandas"
 authors=["Joshua Kreuder <joshua_kreuder@outlook.com>"]
 keywords=["pandas"]
