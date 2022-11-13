@@ -37,7 +37,6 @@ stages:
   - lint
   - test
   - build
-  - publish
 
 poetry:
   stage: prelint
@@ -139,20 +138,11 @@ build:
   stage: build
   rules:
     - if: '$CI_BUILD_AND_PUSH=="true"'
-  script:
-    - poetry build
-  artifacts:
-    paths:
-      - dist/*
-
-publish:
-  stage: publish
-  cache: []
-  variables:
-    PYPI_API_TOKEN: $PYPI_API_TOKEN
-  rules:
-    - if: '$CI_BUILD_AND_PUSH=="true"'
   before_script:
     - poetry config pypi-token.pypi $PYPI_API_TOKEN
   script:
+    - poetry build
     - poetry publish
+  artifacts:
+    paths:
+      - dist/*

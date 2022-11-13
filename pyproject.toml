@@ -6,8 +6,8 @@ authors=["Joshua Kreuder <joshua_kreuder@outlook.com>"]
 keywords=["pandas"]
 readme="readme.md"
 license="GPL-3"
-homepage="https://gitlab.com/joshuader6/wodoo-datalib"
-repository="https://gitlab.com/joshuader6/wodoo-datalib"
+homepage="https://gitlab.com/jksoftware1/wodoo-datalib"
+repository="https://gitlab.com/jksoftware1/wodoo-datalib"
 include=[
     "LICENSE",
 ]
