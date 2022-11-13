@@ -12,7 +12,6 @@ include=[
     "LICENSE",
 ]
 
-
 [tool.poetry_bumpversion.file."wodoo_datalib/__init__.py"]
 
 [tool.poetry.dependencies]
