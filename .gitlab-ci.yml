@@ -55,9 +55,9 @@ pylint:
     - if: '$CI_BUILD_AND_PUSH!="true"'
   script:
     - pylint --version
-    - pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter . > codeclimate.json
-    - pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter . > pylint.html
-    - pylint .
+    - pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter python_datalib > codeclimate.json
+    - pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter python_datalib > pylint.html
+    - pylint python_datalib
   artifacts:
     when: always
     paths:
