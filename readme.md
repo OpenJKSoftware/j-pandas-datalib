@@ -2,6 +2,10 @@
 
 Useful Python abstractions around the Pandas file Interaction and other common Tasks.
 
+## VS Code Devcontainer
+
+This workspace contains a [Vscode devcontainer](https://code.visualstudio.com/docs/remote/containers).
+
 ## Gitlab Release
 
 There are 2 Ways to start a release Pipeline:
