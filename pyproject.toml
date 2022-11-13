@@ -1,19 +1,19 @@
 [tool.poetry]
-name="python_datalib"
+name="wodoo-datalib"
 version="0.0.1"
 description="Dataabstractionlayer For Pandas"
 authors=["Joshua Kreuder <joshua_kreuder@outlook.com>"]
 keywords=["pandas"]
 readme="readme.md"
 license="GPL-3"
-homepage="https://gitlab.com/joshuader6/python-datalib"
-repository="https://gitlab.com/joshuader6/python-datalib"
+homepage="https://gitlab.com/joshuader6/wodoo-datalib"
+repository="https://gitlab.com/joshuader6/wodoo-datalib"
 include=[
     "LICENSE",
 ]
 
 
-[tool.poetry_bumpversion.file."python_datalib/__init__.py"]
+[tool.poetry_bumpversion.file."wodoo_datalib/__init__.py"]
 
 [tool.poetry.dependencies]
 python="^3.8,<3.11"

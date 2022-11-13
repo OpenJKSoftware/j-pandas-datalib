@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
-from python_datalib import Dataset
+from wodoo_datalib import Dataset
 
 
 def test_read_csv(comma_csv_path: str, target_dataframe: pd.DataFrame) -> None:

@@ -1,11 +1,11 @@
-"""Test module for wetech CSV Parser."""
+"""Test module for Wodoo CSV Parser."""
 import logging
 from pathlib import Path
 
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
-from python_datalib.csv_tools import pandas_read_csv
+from wodoo_datalib.csv_tools import pandas_read_csv
 
 LOGGER = logging.getLogger(__name__)
 

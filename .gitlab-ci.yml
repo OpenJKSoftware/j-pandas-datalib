@@ -9,6 +9,7 @@ default:
 
 variables:
   CACHE_KEY: $CI_COMMIT_REF_SLUG
+  PY_PACKAGE_PATH: wodoo_datalib
   BUMP_TARGET:
     value: ""
     description: Specifies how to Bump the Package version. https://python-poetry.org/docs/cli/#version
@@ -55,9 +56,9 @@ pylint:
     - if: '$CI_BUILD_AND_PUSH!="true"'
   script:
     - pylint --version
-    - pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter python_datalib > codeclimate.json
-    - pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter python_datalib > pylint.html
-    - pylint python_datalib
+    - pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter $PY_PACKAGE_PATH > codeclimate.json
+    - pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter $PY_PACKAGE_PATH > pylint.html
+    - pylint $PY_PACKAGE_PATH
   artifacts:
     when: always
     paths:
