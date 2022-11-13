@@ -110,7 +110,6 @@ bump version:
   cache: []
   variables:
     GIT_STRATEGY: clone # Ensure we start with a clean Repo here
-    GITLAB_CI_PUSH_TOKEN: $GITLAB_CI_PUSH_TOKEN
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $BUMP_TARGET"
   before_script:
@@ -134,7 +133,7 @@ bump version:
     - git push -o ci.skip origin HEAD:$CI_COMMIT_REF_NAME
     - git push origin -o ci.variable="CI_BUILD_AND_PUSH=true" -o ci.variable="CACHE_KEY=$CI_COMMIT_REF_SLUG" --tags
 
-build:
+build_and_push:
   stage: build
   rules:
     - if: '$CI_BUILD_AND_PUSH=="true"'
