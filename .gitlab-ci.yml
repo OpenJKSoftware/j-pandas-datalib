@@ -55,26 +55,26 @@ pylint:
     - if: '$CI_BUILD_AND_PUSH!="true"'
   script:
     - pylint --version
-    - pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter $PY_PACKAGE_PATH > codeclimate.json
-    - pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter $PY_PACKAGE_PATH > pylint.html
+    - pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter $PY_PACKAGE_PATH > /tmp/codeclimate.json
+    - pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter $PY_PACKAGE_PATH > /tmp/pylint.html
     - pylint $PY_PACKAGE_PATH
   artifacts:
     when: always
     paths:
-      - pylint.html
+      - /tmp/pylint.html
     reports:
-      codequality: codeclimate.json
+      codequality: /tmp/codeclimate.json
 
 flake8:
   stage: lint
   rules:
     - if: '$CI_BUILD_AND_PUSH!="true"'
   script:
-    - flake8 --format junit-xml . > flake8.xml
+    - flake8 --format junit-xml . > /tmp/flake8.xml
   artifacts:
     when: always
     reports:
-      junit: flake8.xml
+      junit: /tmp/flake8.xml
 
 pydocstyle:
   stage: lint
@@ -88,22 +88,22 @@ mypy:
   rules:
     - if: '$CI_BUILD_AND_PUSH!="true"'
   script:
-    - mypy --junit-xml=mypy.xml .
+    - mypy --junit-xml=/tmp/mypy.xml .
   artifacts:
     when: always
     reports:
-      junit: mypy.xml
+      junit: /tmp/mypy.xml
 
 pytest:
   stage: test
   rules:
     - if: '$CI_BUILD_AND_PUSH!="true"'
   script:
-    - pytest --junitxml=report.xml
+    - pytest --junitxml=/tmp/pytest.xml
   artifacts:
     when: always
     reports:
-      junit: report.xml
+      junit: /tmp/pytest.xml
 
 bump version:
   stage: build
