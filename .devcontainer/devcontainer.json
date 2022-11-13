@@ -4,10 +4,7 @@
   "name": "Python-Datalib",
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
-  "containerEnv": {
-    "PYTHONPATH": "${containerWorkspaceFolder}/src"
-  },
-  "image": "registry.gitlab.com/joshuader6/docker-python:main",
+  "image": "registry.gitlab.com/jksoftware1/docker-python:main",
   "postCreateCommand": "poetry install && poetry run pre-commit install",
   "remoteUser": "ContainerUser",
   "mounts": [
@@ -26,6 +23,6 @@
     "naumovs.color-highlight",
     "cstrap.flask-snippets",
     "mechatroner.rainbow-csv",
-    "bungcip.better-toml",
+    "bungcip.better-toml"
   ]
 }
