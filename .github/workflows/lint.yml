@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  test:
+  install_poetry:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -20,6 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
+          cache: poetry
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry Package
         run: poetry install
