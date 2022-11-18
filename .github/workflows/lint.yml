@@ -7,6 +7,9 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+env:
+  PACKAGE_LOC: j_pandas_datalib
+
 jobs:
   install_poetry:
     runs-on: ubuntu-latest
@@ -25,6 +28,6 @@ jobs:
       - name: Install Poetry Package
         run: poetry install
       - name: Pylint
-        run: poetry run pylint --version && poetry run pylint .
+        run: poetry run pylint --version && poetry run pylint ${{ env.PACKAGE_LOC }}
       - name: Flake8
-        run: poetry run flake8 --format junit-xml . > /tmp/flake8.xml
+        run: poetry run flake8 --format junit-xml ${{ env.PACKAGE_LOC }} > /tmp/flake8.xml
