@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Poetry Package
+        run: poetry install
+      - name: Pylint
+        run: poetry run pylint --version && poetry run pylint .
+      - name: Flake8
+        run: poetry run flake8 --format junit-xml . > /tmp/flake8.xml
