@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
-from wodoo_datalib.csv_tools import pandas_read_csv
+from j_pandas_datalib.csv_tools import pandas_read_csv
 
 LOGGER = logging.getLogger(__name__)
 
