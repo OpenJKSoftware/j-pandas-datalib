@@ -30,8 +30,6 @@ jobs:
         run: poetry lock --check
       - name: mypy
         run: poetry run mypy src --junit-xml=junit/mypy-${{ matrix.python-version }}.xml
-      - name: Pydocstyle
-        run: poetry run pydocstyle src
       - name: Pylint
         run: poetry run pylint --version && poetry run pylint src
       - name: Flake8

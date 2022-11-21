@@ -1,4 +1,4 @@
-"""CSV Parser tests"""
+"""CSV Parser tests."""
 import logging
 from pathlib import Path
 

@@ -59,6 +59,7 @@ no-docstring-rgx="^(?!__init__$)_"
 [tool.pylint.master]
 jobs=0
 persistent=true
+init-hook='import sys; sys.path.append("src")'
 
 [tool.pylint.'MESSAGES CONTROL']
 disable="superfluous-parens,too-few-public-methods,too-many-arguments"
