@@ -23,7 +23,11 @@ jobs:
           cache: poetry
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry Package
-        run: poetry install
+        run: |
+          poetry env use ${{ matrix.python-version }}
+          poetry install
+      - name: Check poetry.lock
+        run: poetry lock --check
       - name: mypy
         run: poetry run mypy src --junit-xml=junit/mypy-${{ matrix.python-version }}.xml
       - name: Pydocstyle
