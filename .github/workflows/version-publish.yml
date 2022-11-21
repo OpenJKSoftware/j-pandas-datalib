@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    name: Publish to Pypi
     steps:
       - uses: actions/checkout@v3
       - name: Install poetry

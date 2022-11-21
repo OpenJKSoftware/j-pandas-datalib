@@ -9,6 +9,7 @@ on:
         default: patch
         type: choice
         options:
+          - prepatch
           - patch
           - minor
           - major
@@ -34,14 +35,17 @@ jobs:
           git config user.email "<>"
           git checkout -b release
       - name: Bump Version
+        id: bump_version
         run: |
           VERSION=$(poetry version --short)
           poetry version ${{ github.event.inputs.versionPart }}
           BUMPED_VERSION=$(poetry version --short)
+          echo "BUMPED_VERSION=$BUMPED_VERSION" >> $GITHUB_OUTPUT
+          echo "PRE_BUMP_VERSION=$VERSION" >> $GITHUB_OUTPUT
       - name: Commiting Version change
         run: |
           git add --all
-          git commit -m "[BUMP] Package $VERSION to $BUMPED_VERSION"
+          git commit -m "[BUMP] Package ${{ steps.bump_version.outputs.PRE_BUMP_VERSION }} to ${{ steps.bump_version.outputs.BUMPED_VERSION }}"
       - name: Git push
         run: |
           git push origin release
@@ -51,7 +55,7 @@ jobs:
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
-              title: 'Release version',
+              title: 'Release version ${{ steps.bump_version.outputs.BUMPED_VERSION }}',
               owner,
               repo,
               head: 'release',
