@@ -1,4 +1,4 @@
-"""Wodoo Datalib."""
+"""Joshs Pandas Datalib."""
 __version__ = "0.0.0"
 from .csv_tools import pandas_read_csv  # noqa
 from .dataset import Dataset  # noqa

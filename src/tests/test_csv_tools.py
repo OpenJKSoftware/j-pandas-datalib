@@ -1,4 +1,4 @@
-"""Test module for Wodoo CSV Parser."""
+"""CSV Parser tests"""
 import logging
 from pathlib import Path
 
