@@ -8,12 +8,9 @@ This workspace contains a [Vscode devcontainer](https://code.visualstudio.com/do
 
 ## Development
 
-### Bump version
+### Bump / Release Version
 
-- Run `poetry version <minor|major|patch|...>` [Valid Values for Version target](https://python-poetry.org/docs/cli/#version).
-- Push commit with `[BUMP] Prefix`
-
-### Release
-
-- Create new Release in Github
-- Action will automatically create a Tag and push to pypi
+- Trigger [Version Bump](https://github.com/OpenJKSoftware/j-pandas-datalib/actions/workflows/version-bump.yml) pipeline with appropriate target.
+- Merge the created PullRequest
+- This will create a Tag on `main`
+- Create a realease from this Tag. The Pipeline will automatically push to [Pypi](https://pypi.org/project/j-pandas-datalib/)
