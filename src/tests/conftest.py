@@ -3,30 +3,36 @@
 Functions decorated with @pytest.fixture will be available
 as arguments in test_ functions.
 """
+from pathlib import Path
+
 import pandas as pd
 import pytest
 
 
+def _test_folder() -> Path:
+    return Path(__file__).parent
+
+
 @pytest.fixture
-def comma_csv_path() -> str:
+def comma_csv_path() -> Path:
     """Path to example comma delimited csv file.
 
     Returns
     -------
     str
     """
-    return "tests/assets/test_comma.csv"
+    return _test_folder() / "assets/test_comma.csv"
 
 
 @pytest.fixture
-def semicolon_csv_path() -> str:
+def semicolon_csv_path() -> Path:
     """Path to example semicolon delimited csv file.
 
     Returns
     -------
     str
     """
-    return "tests/assets/test_semicolon.csv"
+    return _test_folder() / "assets/test_semicolon.csv"
 
 
 @pytest.fixture

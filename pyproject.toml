@@ -12,7 +12,7 @@ include=[
     "LICENSE",
 ]
 
-[tool.poetry_bumpversion.file."wodoo_datalib/__init__.py"]
+[tool.poetry_bumpversion.file."src/j_pandas_datalib/__init__.py"]
 
 [tool.poetry.dependencies]
 python="^3.8,<3.11"
@@ -36,6 +36,9 @@ pylint-gitlab="^1.1.0"
 [build-system]
 requires=["poetry-core>=1.0.0"]
 build-backend="poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
 
 [tool.black]
 line-length=120
