@@ -1,13 +1,14 @@
 name: Version tag
 
 on:
-  push:
-    branches:
-      - main
+  pull_request_target:
+    types:
+      - closed
 
 jobs:
-  deploy:
-    name: Version tag if last commit was Bump
+  tag:
+    name: Tag Version if Pullrequest Bumped
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,10 +20,10 @@ jobs:
         id: version_number
         continue-on-error: true
         run: |
-          OUTPUT=$(git show -q | grep "[BUMP] Package" | awk '{print $5}')
-          echo "OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
+          BUMP_VERSION=$(echo "${{ github.event.pull_request.title }}" | grep ":shipit: Bump to Version: " | awk '{print $5}')
+          echo "BUMP_VERSION=$BUMP_VERSION" >> $GITHUB_OUTPUT
       - name: Git tag & push
-        if: steps.version_number.outputs.OUTPUT != ''
+        if: steps.version_number.outputs.BUMP_VERSION != ''
         run: |
-          git tag ${{ steps.version_number.outputs.OUTPUT }}
+          git tag ${{ steps.version_number.outputs.BUMP_VERSION }}
           git push --tags
