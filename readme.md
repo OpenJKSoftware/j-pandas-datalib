@@ -11,6 +11,6 @@ This workspace contains a [Vscode devcontainer](https://code.visualstudio.com/do
 ### Bump / Release Version
 
 - Trigger [Version Bump](https://github.com/OpenJKSoftware/j-pandas-datalib/actions/workflows/version-bump.yml) pipeline with appropriate target.
-- Merge the created PullRequest
+- Merge the created PullRequest. Name: `:shipit: Bump to Version: <versionnumber>`
 - This will create a Tag on `main`
-- Create a realease from this Tag. The Pipeline will automatically push to [Pypi](https://pypi.org/project/j-pandas-datalib/)
+- Create a release from this Tag. A Pipeline will automatically push to [Pypi](https://pypi.org/project/j-pandas-datalib/)
