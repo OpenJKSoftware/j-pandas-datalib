@@ -19,7 +19,7 @@ jobs:
         id: version_number
         continue-on-error: true
         run: |
-          OUTPUT=$(git show -q | grep "^[BUMP] Package" | awk '{print $5}') &&
+          OUTPUT=$(git show -q | grep "[BUMP] Package" | awk '{print $5}')
           echo "OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
       - name: Git tag & push
         if: steps.version_number.outputs.OUTPUT != ''
