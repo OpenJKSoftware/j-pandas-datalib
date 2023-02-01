@@ -15,12 +15,12 @@ include=[
 [tool.poetry_bumpversion.file."src/j_pandas_datalib/__init__.py"]
 
 [tool.poetry.dependencies]
-python="^3.8,<3.11"
-pandas="^1.0.0,<1.4.0"
+python="^3.8,<3.12"
+pandas="^1.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest="^7.1.2"
-pandas-stubs="^1.0.0,<1.4.0"
+pandas-stubs="^1.0.0"
 pre-commit="^2.20.0"
 isort="^5.10.1"
 black="^22.6.0"
