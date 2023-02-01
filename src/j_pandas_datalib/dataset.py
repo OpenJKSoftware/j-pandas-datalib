@@ -16,7 +16,7 @@ class Dataset:
     def __init__(
         self,
         file: Path,
-        dataframe: pd.DataFrame = None,
+        dataframe: Optional[pd.DataFrame] = None,
         reference: str = "",
         read_only: bool = False,
         save_cols: Optional[List[str]] = None,
