@@ -59,16 +59,16 @@ def pandas_read_csv(
             dialect=dialect,
             dtype=type_dict,
             **kwargs,
-        )
+        )  # type: ignore
         return type_csv.rename(renamer, axis=1)
 
     if "engine" not in kwargs:
         kwargs["engine"] = "python"
-    return pd.read_csv(file_path, dialect=dialect, decimal=decimal, **kwargs)
+    return pd.read_csv(file_path, dialect=dialect, decimal=decimal, **kwargs)  # type: ignore
 
 
 def _csv_read_type_cols(file_path: Path, dialect: Type[csv.Dialect], decimal: str) -> Dict[str, Tuple[str, str]]:
-    csv_header = pd.read_csv(file_path, dialect=dialect, decimal=decimal, nrows=0)
+    csv_header = pd.read_csv(file_path, dialect=dialect, decimal=decimal, nrows=0)  # type: ignore
     type_rx = re.compile("(?P<col>.*):type:(?P<type>.*)")
     # fmt: off
     typecols: Dict[str, Tuple[str, str]] = {
