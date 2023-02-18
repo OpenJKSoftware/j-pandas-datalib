@@ -20,7 +20,7 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: poetry run pylint
+        entry: pylint
         language: system
         types: [python]
         args: [
@@ -32,7 +32,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: poetry run pytest
+        entry: pytest src/tests --exitfirst --failed-first -cov=src
         language: system
         types: [python]
 

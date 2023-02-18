@@ -1,7 +1,7 @@
 {
   "workspaceFolder": "/j-pandas-dataset",
   "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind,consistency=cached",
-  "postCreateCommand": "poetry install --no-interaction --no-ansi && poetry run pre-commit install",
+  "postCreateCommand": "poetry install --no-interaction --no-ansi && pre-commit install",
   "image": "ghcr.io/openjksoftware/python-devcontainer:3.11",
   "remoteUser": "ContainerUser",
   "mounts": [
