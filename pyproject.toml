@@ -1,6 +1,6 @@
 [tool.poetry]
 name="j-pandas-datalib"
-version="0.1.0"
+version="0.1.1"
 description="Dataabstractionlayer For Pandas"
 authors=["Joshua Kreuder <joshua_kreuder@outlook.com>"]
 keywords=["pandas"]
